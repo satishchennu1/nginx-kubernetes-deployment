@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginxpp
+  name: nginxpp
+  namespace: nginx-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginxpp
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: nginxpp
+    spec:
+      containers:
+      - image: schennu4/nginx-deployment:1.0 
+        name: nginx
